@@ -20,7 +20,7 @@ price = '$' + str(pd_prod_data['PRICE'].iloc[0])+'0'
 size_list = pd_prod_data['SIZE_LIST'].iloc[0]
 upsell = pd_prod_data['UPSELL_PRODUCT_DESC'].iloc[0]
 if selected_color:
-    st.write(session.sql("""select file_url, from catalog_for_website where color_or_style ='"""+selected_color+"""'"""));
+    #st.write(session.sql("""select file_url, from catalog_for_website where color_or_style ='"""+selected_color+"""'"""));
     st.image(image=file_url,width=400,caption='Our warm, comfortable, ' + selected_color + ' sweatsuit!')
 
     st.markdown('**Price:** '+ price)
