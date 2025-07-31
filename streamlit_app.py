@@ -8,7 +8,7 @@ import pandas as pd
 st.title("Athleisure Catalog")
 # Get the current credentials
 cnx = st.connection("snowflake")
-session = st.connection("snowflake")
+session = cnx.session()
 color_data_frame = session.table("ZENAS_ATHLEISURE_DB.products.sweatsuits").select(col('COLOR_OR_STYLE'));
 selected_color=st.selectbox('pick a sweatsuit color or style:', color_data_frame);
 
