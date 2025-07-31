@@ -1,13 +1,14 @@
 # Import python packages
 import streamlit as st
-from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col;
+from snowflake.snowpark.context import get_active_session
 import pandas as pd
 
 # Write directly to the app
 st.title("Athleisure Catalog")
 # Get the current credentials
-session = get_active_session()
+cnx = st.connection("snowflake")
+session = st.connection("snowflake")
 color_data_frame = session.table("ZENAS_ATHLEISURE_DB.products.sweatsuits").select(col('COLOR_OR_STYLE'));
 selected_color=st.selectbox('pick a sweatsuit color or style:', color_data_frame);
 
